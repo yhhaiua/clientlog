@@ -14,7 +14,7 @@ type ClientRecord struct {
 	Onlyid  int64
 	Logintime time.Time `orm:"auto_now_add;type(datetime)"`
 	Os      string
-	Msg		string
+	Msg		string		`orm:"type(text)"`
 	Username string
 	Platformid string
 }

@@ -48,7 +48,7 @@ func (logic *LogicSvr) routerInit() bool{
 	router.GET("/clientlog", logic.logContol.LogNote)
 
 	log4go.Info("http监听开启%s", logic.Myconfig.Sport)
-	log4go.Info("当前版本:v1.0.0")
+	log4go.Info("当前版本:v1.0.1")
 
 	srv := &http.Server{
 		ReadTimeout: 30 * time.Second,
