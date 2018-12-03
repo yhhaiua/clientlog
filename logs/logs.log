@@ -1,0 +1,22 @@
+[2018/12/03 15:57:59.966 CST] [EROR] (config.go(ConfigInit):63) Failed to mysql InitDB file './config/config.json',err:register db Ping `default`, Error 1045: Access denied for user 'root'@'localhost' (using password: YES)
+[2018/12/03 15:57:59.966 CST] [EROR] (main.go(main):15) clientlog 启动失败
+[2018/12/03 15:59:28.539 CST] [EROR] (config.go(ConfigInit):63) Failed to mysql InitDB file './config/config.json',err:register db Ping `default`, Error 1045: Access denied for user 'root'@'localhost' (using password: YES)
+[2018/12/03 15:59:28.539 CST] [EROR] (main.go(main):15) clientlog 启动失败
+[2018/12/03 16:00:41.789 CST] [EROR] (config.go(ConfigInit):63) Failed to mysql InitDB file './config/config.json',err:register db Ping `default`, Error 1049: Unknown database 'client'
+[2018/12/03 16:00:41.789 CST] [EROR] (main.go(main):15) clientlog 启动失败
+[2018/12/03 16:01:08.288 CST] [INFO] (logic.go(routerInit):50) http监听开启:12001
+[2018/12/03 16:01:08.288 CST] [INFO] (logic.go(routerInit):51) 当前版本:v1.0.0
+[2018/12/03 16:07:02.892 CST] [INFO] (logic.go(routerInit):50) http监听开启:12001
+[2018/12/03 16:07:02.892 CST] [INFO] (logic.go(routerInit):51) 当前版本:v1.0.0
+[2018/12/03 16:10:43.754 CST] [INFO] (logic.go(routerInit):50) http监听开启:12001
+[2018/12/03 16:10:43.754 CST] [INFO] (logic.go(routerInit):51) 当前版本:v1.0.0
+[2018/12/03 16:17:54.940 CST] [INFO] (logic.go(routerInit):50) http监听开启:12001
+[2018/12/03 16:17:54.940 CST] [INFO] (logic.go(routerInit):51) 当前版本:v1.0.0
+[2018/12/03 16:27:44.090 CST] [INFO] (logic.go(routerInit):50) http监听开启:12001
+[2018/12/03 16:27:44.090 CST] [INFO] (logic.go(routerInit):51) 当前版本:v1.0.0
+[2018/12/03 16:28:39.866 CST] [INFO] (logic.go(routerInit):50) http监听开启:12001
+[2018/12/03 16:28:39.866 CST] [INFO] (logic.go(routerInit):51) 当前版本:v1.0.0
+[2018/12/03 16:37:30.279 CST] [INFO] (logic.go(routerInit):50) http监听开启:12001
+[2018/12/03 16:37:30.279 CST] [INFO] (logic.go(routerInit):51) 当前版本:v1.0.0
+[2018/12/03 16:40:44.244 CST] [INFO] (logic.go(routerInit):50) http监听开启:12001
+[2018/12/03 16:40:44.244 CST] [INFO] (logic.go(routerInit):51) 当前版本:v1.0.0

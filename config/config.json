@@ -1,0 +1,16 @@
+{
+  "clientlog":[
+	{
+		"port":":12001",
+		"clientkey":"chm&clientlog&9528",
+		"mysql": {
+			"host": "127.0.0.1:3306",
+			"dbname": "client",
+			"user": "root",
+			"password": "123456",
+			"open":2000,
+			"idle":5
+		}
+	}
+  ]
+}
