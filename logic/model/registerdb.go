@@ -21,7 +21,7 @@ func (sqlconfig *SqlConfig) InitDB() error  {
 	}
 	orm.RegisterModel(new(ClientRecord))
 
-	dataSource := sqlconfig.Suser + ":"+sqlconfig.Spassword+"@tcp("+sqlconfig.Shost+")/"+sqlconfig.Sdbname+"?charset=utf8"
+	dataSource := sqlconfig.Suser + ":"+sqlconfig.Spassword+"@tcp("+sqlconfig.Shost+")/"+sqlconfig.Sdbname+"?charset=utf8&loc=Local"
 	err = orm.RegisterDataBase("default", "mysql", dataSource)
 	if(err != nil){
 		return err
