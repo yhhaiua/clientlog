@@ -6,10 +6,12 @@ import (
 	"fmt"
 	"github.com/yhhaiua/clientlog/logic/model"
 	"github.com/yhhaiua/engine/grouter"
-	"github.com/yhhaiua/log4go"
+	"github.com/yhhaiua/engine/log"
 	"net/http"
 	"strconv"
 )
+
+var gLog = log.GetLogger()
 
 type LogControl struct {
 	Clientkey string
@@ -26,7 +28,7 @@ func (control *LogControl)LogNote(w http.ResponseWriter, r *http.Request, _ grou
 	cipherStr := md5Ctx.Sum(nil)
 	mysigon := hex.EncodeToString(cipherStr)
 	if mysigon != sign{
-		log4go.Error("md5 error : me:%s,client:%s",mysigon,sign)
+		gLog.Error("md5 error : me:%s,client:%s",mysigon,sign)
 		control.send(w,"md5 error")
 		return;
 	}
@@ -48,7 +50,7 @@ func (control *LogControl)LogNote(w http.ResponseWriter, r *http.Request, _ grou
 
 	err := record.Insert(iType,Time,Step,Onlyid,Logintime,os,msg,username,platformid,account)
 	if err != nil{
-		log4go.Error("save error:%s",err)
+		gLog.Error("save error:%s",err)
 		control.send(w,"save error")
 	}else{
 		control.send(w,"ok")

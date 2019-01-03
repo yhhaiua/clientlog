@@ -2,17 +2,19 @@ package main
 
 import (
 	"github.com/yhhaiua/clientlog/logic"
-	"github.com/yhhaiua/log4go"
+	"github.com/yhhaiua/engine/log"
 	"time"
 )
 
+var gLog = log.GetLogger()
+
 func main() {
 
-	log4go.LoadConfiguration("config/log4j.xml")
+	gLog.Config("config/log4j.xml")
 	if logic.Instance().LogicInit(){
-		log4go.Info("clientlog 启动成功")
+		gLog.Info("clientlog 启动成功")
 	}else{
-		log4go.Error("clientlog 启动失败")
+		gLog.Error("clientlog 启动失败")
 	}
 	time.Sleep(3*time.Second)
 }

@@ -13,7 +13,7 @@ type ClientRecord struct {
 	Step    int
 	Onlyid  int64
 	Logintime time.Time `orm:"auto_now_add;type(datetime)"`
-	Os      string
+	Os      string		`orm:"type(text)"`
 	Msg		string		`orm:"type(text)"`
 	Username string
 	Platformid string

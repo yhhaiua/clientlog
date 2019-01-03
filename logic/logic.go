@@ -4,7 +4,7 @@ import (
 	"github.com/yhhaiua/clientlog/logic/config"
 	"github.com/yhhaiua/clientlog/logic/control"
 	"github.com/yhhaiua/engine/grouter"
-	"github.com/yhhaiua/log4go"
+	"github.com/yhhaiua/engine/log"
 	"net/http"
 	"sync"
 	"time"
@@ -14,7 +14,7 @@ var (
 	instance *LogicSvr
 	mu       sync.Mutex
 )
-
+var gLog = log.GetLogger()
 //LogicSvr 服务器数据
 type LogicSvr struct {
 	Myconfig 	config.Config
@@ -47,8 +47,8 @@ func (logic *LogicSvr) routerInit() bool{
 
 	router.GET("/clientlog", logic.logContol.LogNote)
 
-	log4go.Info("http监听开启%s", logic.Myconfig.Sport)
-	log4go.Info("当前版本:v1.0.2")
+	gLog.Info("http监听开启%s", logic.Myconfig.Sport)
+	gLog.Info("当前版本:v1.0.3")
 
 	srv := &http.Server{
 		ReadTimeout: 30 * time.Second,
@@ -59,7 +59,7 @@ func (logic *LogicSvr) routerInit() bool{
 
 	err := srv.ListenAndServe()
 	if err != nil {
-		log4go.Error("http监听失败 %s", err)
+		gLog.Error("http监听失败 %s", err)
 		return false
 	}
 	return true

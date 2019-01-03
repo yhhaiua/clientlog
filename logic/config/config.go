@@ -3,9 +3,10 @@ package config
 import (
 	"github.com/yhhaiua/clientlog/logic/model"
 	"github.com/yhhaiua/engine/gjson"
-	"github.com/yhhaiua/log4go"
+	"github.com/yhhaiua/engine/log"
 	"io/ioutil"
 )
+var gLog = log.GetLogger()
 
 type Config struct {
 	Sport string //http端口
@@ -20,26 +21,26 @@ func (config *Config) ConfigInit() bool {
 
 	configdata, err := ioutil.ReadFile(path)
 	if err != nil {
-		log4go.Error("Failed to open config file '%s': %s\n", path, err)
+		gLog.Error("Failed to open config file '%s': %s\n", path, err)
 		return false
 	}
 
 	jsondata, err := gjson.NewJSONByte(configdata)
 	if err != nil {
-		log4go.Error("Failed to NewJsonByte config file '%s': %s\n", path, err)
+		gLog.Error("Failed to NewJsonByte config file '%s': %s\n", path, err)
 		return false
 	}
 	keydata := gjson.NewGet(jsondata, key)
 
 	if !keydata.IsValid() {
-		log4go.Error("Failed1 to config file '%s'", path)
+		gLog.Error("Failed1 to config file '%s'", path)
 		return false
 	}
 
 	data := gjson.NewGetindex(keydata, 0)
 
 	if !data.IsValid(){
-		log4go.Error("Failed2 to config file '%s'", path)
+		gLog.Error("Failed2 to config file '%s'", path)
 		return false
 	}
 
@@ -48,7 +49,7 @@ func (config *Config) ConfigInit() bool {
 
 	mysqldata := gjson.NewGet(data, "mysql")
 	if !mysqldata.IsValid() {
-		log4go.Error("Failed to mysql config file '%s'", path)
+		gLog.Error("Failed to mysql config file '%s'", path)
 		return false
 	}
 	config.sqlconfig.Shost = mysqldata.Getstring("host")
@@ -60,7 +61,7 @@ func (config *Config) ConfigInit() bool {
 
 	err = config.sqlconfig.InitDB()
 	if(err != nil){
-		log4go.Error("Failed to mysql InitDB file '%s',err:%s", path,err)
+		gLog.Error("Failed to mysql InitDB file '%s',err:%s", path,err)
 		return false
 	}
 	return true
